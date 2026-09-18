@@ -1,0 +1,89 @@
+{
+  "seed": 42,
+  "accounts": 5000,
+  "transactions": 2115556,
+  "fraud_rate": 0.002973213661089567,
+  "total_amount": 188857774.05999997,
+  "eda": {
+    "account_mean_ticket": 89.24864176630585,
+    "ticket_ci95": [
+      89.06066651005064,
+      89.43661702256107
+    ],
+    "welch_pvalue": 0.09061348080044482,
+    "chi2_pvalue": 0.7414361308507182,
+    "inactive_share": 0.3406
+  },
+  "forecast": [
+    {
+      "model": "Prophet",
+      "mape": 4.611970956101502,
+      "rmse": 155.73109412689655
+    },
+    {
+      "model": "Sazonal ingênuo",
+      "mape": 27.100179399375232,
+      "rmse": 823.2274375926432
+    },
+    {
+      "model": "SARIMA",
+      "mape": 31.395090343161993,
+      "rmse": 926.3543543282036
+    }
+  ],
+  "anomalies": [
+    {
+      "model": "Isolation Forest",
+      "precision": 0.5011933174224343,
+      "recall": 0.5060240963855421,
+      "average_precision": 0.5404786335833595,
+      "threshold": 0.7039822325350155,
+      "alerts": 838
+    },
+    {
+      "model": "Z-score robusto",
+      "precision": 0.4209891435464415,
+      "recall": 0.42048192771084336,
+      "average_precision": 0.40801220853774023,
+      "threshold": 3.054576926008629,
+      "alerts": 829
+    },
+    {
+      "model": "STL diário (choques separados)",
+      "precision": 0.07692307692307693,
+      "recall": 1.0,
+      "average_precision": 0.8541666666666666,
+      "threshold": 4,
+      "alerts": 52
+    }
+  ],
+  "churn": {
+    "models": [
+      {
+        "model": "Regressão logística",
+        "cv_auc_mean": 0.9850096036768363,
+        "cv_auc_std": 0.008816600186336865,
+        "test_auc": 0.9966666666666666,
+        "ks": 0.9563636363636364,
+        "brier": 0.008687519599811148
+      },
+      {
+        "model": "LightGBM",
+        "cv_auc_mean": 0.981085901459416,
+        "cv_auc_std": 0.011828578114245482,
+        "test_auc": 0.9952651515151514,
+        "ks": 0.9551515151515152,
+        "brier": 0.009602024014518776
+      }
+    ],
+    "selected_model": "Regressão logística",
+    "eligible_accounts": 3428,
+    "test_accounts": 857,
+    "test_churn_rate": 0.03733955659276546,
+    "targeted_accounts": 32,
+    "target_precision": 0.84375,
+    "target_recall": 0.84375,
+    "true_positive_targets": 27
+  },
+  "runtime_seconds": 9.11
+}

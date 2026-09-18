@@ -1,0 +1,2 @@
+model,precision,recall,average_precision,threshold,alerts
+STL diário (choques separados),0.07692307692307693,1.0,0.8541666666666666,4,52
