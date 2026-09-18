@@ -85,5 +85,5 @@
     "target_recall": 0.84375,
     "true_positive_targets": 27
   },
-  "runtime_seconds": 9.11
+  "runtime_seconds": 8.78
 }
