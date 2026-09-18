@@ -8,7 +8,7 @@ from prophet import Prophet
 from statsmodels.tsa.seasonal import STL
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 
-from src.config import FIGURES, REPORTS
+from src.config import FIGURES, REPORTS, SEED
 
 
 def daily_volume(transactions: pd.DataFrame) -> pd.Series:
@@ -38,7 +38,7 @@ def run(transactions: pd.DataFrame) -> dict:
                           daily_seasonality=False, uncertainty_samples=0)
         prophet.add_seasonality(name="monthly", period=30.44, fourier_order=3)
         prophet.add_country_holidays(country_name="BR")
-        prophet.fit(pd.DataFrame({"ds": train.index, "y": train.values}))
+        prophet.fit(pd.DataFrame({"ds": train.index, "y": train.values}), seed=SEED)
         forecasts = {
             "Sazonal ingênuo": baseline,
             "SARIMA": fitted.forecast(28).to_numpy(),
